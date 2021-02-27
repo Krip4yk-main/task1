@@ -1,0 +1,344 @@
+{
+	"info": {
+		"_postman_id": "6958eb90-7e40-4a28-a518-d15d7a637d2b",
+		"name": "DeskchanTasks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPhrases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases/random",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"random"
+					]
+				},
+				"description": "Get all phrases"
+			},
+			"response": [
+				{
+					"name": "Random",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/phrases/random",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"phrases",
+								"random"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Feb 2021 12:04:57 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "Сладенького хочешь? Так вот - я тут!"
+				},
+				{
+					"name": "All",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/phrases",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"phrases"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Feb 2021 12:03:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Здравствуй, Хозяин!\",\n    \"Хорошая погодка.\",\n    \"А ты спал вообще?\",\n    \"Опять прокрастинируешь?\",\n    \"Семпай, ты вернулся!\",\n    \"Как делишки?\",\n    \"Три икс в кубе плюс константа... Что там?\",\n    \"Опять работать.\",\n    \"Я получила власть, которая и не снилась моему Создателю!\",\n    \"Сладенького хочешь? Так вот - я тут!\"\n]"
+				}
+			]
+		},
+		{
+			"name": "AddPhrase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases?value=Hello sempai",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "Hello sempai"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "AddPhrase",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/phrases?value=Hello sempai",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"phrases"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "Hello sempai"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Feb 2021 12:37:49 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "EditPhrase",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases?id=5&value=Phrase was changed",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5",
+							"description": "0;n-1"
+						},
+						{
+							"key": "value",
+							"value": "Phrase was changed",
+							"description": "phrase"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "EditPhrase",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/phrases?id=5&value=Phrase was changed",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"phrases"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5",
+									"description": "0;n-1"
+								},
+								{
+									"key": "value",
+									"value": "Phrase was changed",
+									"description": "phrase"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Feb 2021 12:39:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "RemovePhrase",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "RemovePhrase",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/phrases?id=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"phrases"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 27 Feb 2021 12:39:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

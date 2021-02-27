@@ -32,33 +32,34 @@ public class PhrasesController {
         return phrasesService.getRandomPhrase();
     }
 
-    @DeleteMapping()
-    public ResponseEntity removePhrase(@RequestBody int id) {
-        if (outOfBounds(id)) {
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+    @PostMapping()
+    public ResponseEntity addPhrase(@RequestParam String value) {
+        if (value.isEmpty()) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        phrasesService.removePhrase(id);
+        phrasesService.addPhrase(value);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping()
-    public ResponseEntity editPhrase(@RequestBody int id, @RequestBody String value) {
+    public ResponseEntity editPhrase(@RequestParam int id, @RequestParam String value) {
+        System.out.println(id + " | " + value);
         if (outOfBounds(id)) {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        if (!value.isEmpty()) {
+        if (value.isEmpty()) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         phrasesService.editPhrase(id, value);
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @PostMapping()
-    public ResponseEntity addPhrase(@RequestBody String value) {
-        if (!value.isEmpty()) {
-            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+    @DeleteMapping()
+    public ResponseEntity removePhrase(@RequestParam int id) {
+        if (outOfBounds(id)) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        phrasesService.addPhrase(value);
+        phrasesService.removePhrase(id);
         return new ResponseEntity(HttpStatus.OK);
     }
 

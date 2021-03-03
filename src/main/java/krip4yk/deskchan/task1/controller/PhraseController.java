@@ -14,46 +14,46 @@ public class PhraseController {
     private PhrasesService service;
 
     //POST
-    @PostMapping("/addPhrase")
+    @PostMapping("/phrases/addPhrase")
     public void addPhrase(@RequestBody Phrase phrase) {
         service.addPhrase(phrase);
     }
 
-    @PostMapping("/addPhrases")
-    public void addPhrases(List<Phrase> phrases) {
+    @PostMapping("/phrases/addPhrases")
+    public void addPhrases(@RequestBody List<Phrase> phrases) {
         service.addPhrases(phrases);
     }
 
     //GET
-    @GetMapping()
-    public Phrase getPhraseById(long id) {
+    @GetMapping("/phrases/{id}")
+    public Phrase getPhraseById(@PathVariable long id) {
         return service.getPhraseById(id);
     }
 
-    @GetMapping
+    @GetMapping("/phrases/random")
     public Phrase getPhraseRandom() {
         return service.getPhraseRandom();
     }
 
-    @GetMapping
-    public Phrase getPhraseByName(String name) {
+    @GetMapping("/phrases/{name}")
+    public Phrase getPhraseByName(@PathVariable String name) {
         return service.getPhraseByName(name);
     }
 
-    @GetMapping
+    @GetMapping("/phrases")
     public List<Phrase> getPhrases() {
         return service.getPhrases();
     }
 
     //DELETE
-    @DeleteMapping
-    public void deletePhrase(long id) {
+    @DeleteMapping("/phrases/remove/{id}")
+    public void deletePhrase(@PathVariable long id) {
         service.deletePhrase(id);
     }
 
     //PUT
-    @PutMapping
-    public void updatePhrase(Phrase phrase) {
+    @PutMapping("/phrases/update")
+    public void updatePhrase(@RequestBody Phrase phrase) {
         service.updatePhrase(phrase);
     }
 }

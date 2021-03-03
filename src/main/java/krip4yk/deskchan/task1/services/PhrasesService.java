@@ -39,6 +39,7 @@ public class PhrasesService {
     }
 
     public List<Phrase> getPhrases() {
+        System.out.println(phraseRepository.count());
         return phraseRepository.findAll();
     }
 

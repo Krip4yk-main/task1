@@ -26,7 +26,7 @@ public class PhraseController {
 
     //GET
     @GetMapping("/phrases/{id}")
-    public Phrase getPhraseById(@PathVariable long id) {
+    public Phrase getPhraseById(@PathVariable Long id) {
         return service.getPhraseById(id);
     }
 
@@ -47,7 +47,7 @@ public class PhraseController {
 
     //DELETE
     @DeleteMapping("/phrases/remove/{id}")
-    public void deletePhrase(@PathVariable long id) {
+    public void deletePhrase(@PathVariable Long id) {
         service.deletePhrase(id);
     }
 

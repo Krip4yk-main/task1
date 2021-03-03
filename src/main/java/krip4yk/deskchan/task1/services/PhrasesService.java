@@ -3,12 +3,10 @@ package krip4yk.deskchan.task1.services;
 import krip4yk.deskchan.task1.domain.Phrase;
 import krip4yk.deskchan.task1.repository.PhraseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PhrasesService {
@@ -25,13 +23,12 @@ public class PhrasesService {
     }
 
     //GET
-    public Phrase getPhraseById(long id) {
-        return phraseRepository.findById(id).orElse(null);
+    public Phrase getPhraseById(Long id) {
+        return phraseRepository.findById(id).orElseThrow(RuntimeException::new);
     }
 
     public Phrase getPhraseRandom() {
-        System.out.println(new Random().nextLong()%phraseRepository.count());
-        return phraseRepository.findById(new Random().nextLong()%phraseRepository.count()).orElse(null);
+        return phraseRepository.findById(ThreadLocalRandom.current().nextLong(0, phraseRepository.count())).orElse(null);
     }
 
     public Phrase getPhraseByName(String phrase) {
@@ -43,7 +40,7 @@ public class PhrasesService {
     }
 
     //DELETE
-    public void deletePhrase(long id) {
+    public void deletePhrase(Long id) {
         phraseRepository.deleteById(id);
     }
 

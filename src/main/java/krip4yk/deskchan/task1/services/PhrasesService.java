@@ -30,8 +30,8 @@ public class PhrasesService {
     }
 
     public Phrase getPhraseRandom() {
-        new Random(phraseRepository.count()).nextLong();
-        return phraseRepository.findById(new Random(phraseRepository.count()).nextLong()).orElse(null);
+        System.out.println(new Random().nextLong()%phraseRepository.count());
+        return phraseRepository.findById(new Random().nextLong()%phraseRepository.count()).orElse(null);
     }
 
     public Phrase getPhraseByName(String phrase) {
@@ -39,7 +39,6 @@ public class PhrasesService {
     }
 
     public List<Phrase> getPhrases() {
-        System.out.println(phraseRepository.count());
         return phraseRepository.findAll();
     }
 

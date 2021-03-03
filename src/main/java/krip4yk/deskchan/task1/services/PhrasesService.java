@@ -1,10 +1,8 @@
 package krip4yk.deskchan.task1.services;
 
-import krip4yk.deskchan.task1.domain.Phrases;
+import krip4yk.deskchan.task1.domain.Phrase;
+import krip4yk.deskchan.task1.repository.PhraseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,58 +11,29 @@ import java.util.Random;
 @Service
 public class PhrasesService {
     @Autowired
-    private Phrases phrases = new Phrases();
+    private PhraseRepository phraseRepository;
 
-    public List<String> getPhrases() {
-        return phrases.getPhrases_list();
+
+    //POST
+    public Phrase savePhrase(Phrase phrase) {
+        return phraseRepository.save(phrase);
     }
 
-    public String getPhrase(int id) {
-        List<String> data = phrases.getPhrases_list();
-        int s = data.size();
-        if (id >= 0 && id < s) {
-            return data.get(id);
-        } else return "Failed. Out of bounds {0;" + (s-1) + "}";
+    public List<Phrase> savePhrases(List<Phrase> phrases) {
+        return phraseRepository.saveAll(phrases);
     }
 
-    public String getRandomPhrase() {
-        List<String> data = phrases.getPhrases_list();
-        int s = data.size();
-        return data.get(new Random().nextInt(s));
+    //GET
+    public Phrase getPhraseById(long id) {
+        return phraseRepository.findById(id).orElse(null);
     }
 
-    public boolean removePhrase(int id) {
-        int s = phrases.getPhrases_list().size();
-        List<String> data = phrases.getPhrases_list();
-        if (id >= 0 && id < s) {
-            data.remove(id);
-            phrases.setPhrases_list(data);
-            return true;
-        } else return false;
-    }
-    public boolean removePhrase(String value) {
-        List<String> data = phrases.getPhrases_list();
-        if (data.contains(value)) {
-            data.remove(value);
-            phrases.setPhrases_list(data);
-            return true;
-        } else return false;
+    public Phrase getPhraseRandom() {
+        new Random(phraseRepository.count()).nextLong();
+        return phraseRepository.findById(new Random(phraseRepository.count()).nextLong()).orElse(null);
     }
 
-    public void addPhrase(String value) {
-        List<String> data = phrases.getPhrases_list();
-        data.add(value);
-        phrases.setPhrases_list(data);
-    }
-
-    public boolean editPhrase(int id, String value) {
-        List<String> data = phrases.getPhrases_list();
-        int s = data.size();
-        if (id >= 0 && id < s) {
-            data.set(id, value);
-            return true;
-        } else {
-            return false;
-        }
+    public List<Phrase> getPhrases() {
+        return phraseRepository.findAll();
     }
 }

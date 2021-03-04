@@ -11,9 +11,6 @@ public class Phrase {
     private Long id;
     private String phrase;
 
-    @OneToOne()
-    private Author author;
-
     public Long getId() {
         return id;
     }

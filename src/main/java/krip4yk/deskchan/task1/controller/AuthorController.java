@@ -11,8 +11,11 @@ import java.util.List;
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
-    @Autowired
-    private AuthorService service;
+    private final AuthorService service;
+
+    public AuthorController(AuthorService service) {
+        this.service = service;
+    }
 
     //POST
     @PostMapping("/addAuthor")

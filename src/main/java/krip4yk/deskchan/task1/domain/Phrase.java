@@ -1,9 +1,6 @@
 package krip4yk.deskchan.task1.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="phrases_table")
@@ -13,6 +10,9 @@ public class Phrase {
     @GeneratedValue
     private Long id;
     private String phrase;
+
+    @OneToOne()
+    private Author author;
 
     public Long getId() {
         return id;

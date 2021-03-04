@@ -11,8 +11,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PhrasesService {
-    @Autowired
-    private PhraseRepository phraseRepository;
+    private final PhraseRepository phraseRepository;
+
+    public PhrasesService(PhraseRepository phraseRepository) {
+        this.phraseRepository = phraseRepository;
+    }
 
     //POST
     public void addPhrase(Phrase phrase) {

@@ -10,8 +10,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class AuthorService {
-    @Autowired
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
+
+    public AuthorService(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
+    }
 
     //POST
     public void addAuthor(Author author) {

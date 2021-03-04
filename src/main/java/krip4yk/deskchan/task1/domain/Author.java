@@ -1,6 +1,7 @@
 package krip4yk.deskchan.task1.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="author_table")
@@ -10,6 +11,10 @@ public class Author {
     @GeneratedValue
     private Long id;
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "phrase_id")
+    private List<Phrase> phraseList;
 
     public Long getId() {
         return id;

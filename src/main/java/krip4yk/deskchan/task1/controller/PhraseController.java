@@ -11,8 +11,11 @@ import java.util.Random;
 @RestController
 @RequestMapping("/phrases")
 public class PhraseController {
-    @Autowired
-    private PhrasesService service;
+    private final PhrasesService service;
+
+    public PhraseController(PhrasesService service) {
+        this.service = service;
+    }
 
     //POST
     @PostMapping("/addPhrase")

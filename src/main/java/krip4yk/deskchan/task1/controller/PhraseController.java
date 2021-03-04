@@ -9,50 +9,51 @@ import java.util.List;
 import java.util.Random;
 
 @RestController
+@RequestMapping("/phrases")
 public class PhraseController {
     @Autowired
     private PhrasesService service;
 
     //POST
-    @PostMapping("/phrases/addPhrase")
+    @PostMapping("/addPhrase")
     public void addPhrase(@RequestBody Phrase phrase) {
         service.addPhrase(phrase);
     }
 
-    @PostMapping("/phrases/addPhrases")
+    @PostMapping("/addPhrases")
     public void addPhrases(@RequestBody List<Phrase> phrases) {
         service.addPhrases(phrases);
     }
 
     //GET
-    @GetMapping("/phrases/{id}")
+    @GetMapping("/{id}")
     public Phrase getPhraseById(@PathVariable Long id) {
         return service.getPhraseById(id);
     }
 
-    @GetMapping("/phrases/random")
+    @GetMapping("/random")
     public Phrase getPhraseRandom() {
         return service.getPhraseRandom();
     }
 
-    @GetMapping("/phrases/{name}")
+    @GetMapping("/{name}")
     public Phrase getPhraseByName(@PathVariable String name) {
         return service.getPhraseByName(name);
     }
 
-    @GetMapping("/phrases")
+    @GetMapping("")
     public List<Phrase> getPhrases() {
         return service.getPhrases();
     }
 
     //DELETE
-    @DeleteMapping("/phrases/remove/{id}")
+    @DeleteMapping("/remove/{id}")
     public void deletePhrase(@PathVariable Long id) {
         service.deletePhrase(id);
     }
 
     //PUT
-    @PutMapping("/phrases/update")
+    @PutMapping("/update")
     public void updatePhrase(@RequestBody Phrase phrase) {
         service.updatePhrase(phrase);
     }

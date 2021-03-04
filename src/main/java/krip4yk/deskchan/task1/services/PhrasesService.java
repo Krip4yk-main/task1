@@ -4,6 +4,7 @@ import krip4yk.deskchan.task1.domain.Phrase;
 import krip4yk.deskchan.task1.repository.PhraseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;

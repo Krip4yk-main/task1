@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "6958eb90-7e40-4a28-a518-d15d7a637d2b",
+		"name": "Phrases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPhrase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPhrases",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/phrases",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases"
+					]
+				},
+				"description": "Get all phrases"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRandomPhrase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases/random",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"random"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPhrase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phrase\": \"Я тут твой хард проверила и нашла папку nocilol... хе-хе... извращуга!\",\r\n    \"author\": {\r\n        \"name\": \"Krip4yk\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/phrases/addPhrase",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"addPhrase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPhrases",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"phrase\":\"MyDad\"\r\n    },\r\n    {\r\n        \"phrase\":\"MyGod\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/phrases/addPhrases",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"addPhrases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditPhrase",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":14,\r\n    \"phrase\":\"My\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/phrases/update",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemovePhrase",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases/remove/14",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"remove",
+						"14"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

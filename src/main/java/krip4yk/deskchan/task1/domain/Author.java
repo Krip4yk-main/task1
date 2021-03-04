@@ -10,11 +10,8 @@ public class Author {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(unique = true)
     private String name;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "phrase_id")
-    private List<Phrase> phraseList;
 
     public Long getId() {
         return id;
@@ -29,4 +26,5 @@ public class Author {
     public void setName(String name) {
         this.name = name;
     }
+
 }

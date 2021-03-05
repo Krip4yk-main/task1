@@ -69,7 +69,8 @@ public class PhrasesService {
         existingPhrase.setPhrase(phrase.getPhrase());
 
         phrase = isAuthorExist(phrase);
-        existingPhrase.setAuthor(phrase.getAuthor());
+        if (phrase.getAuthor() != null)
+            existingPhrase.setAuthor(phrase.getAuthor());
 
         phraseRepository.save(existingPhrase);
     }

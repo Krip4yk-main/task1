@@ -2,28 +2,10 @@
 	"info": {
 		"_postman_id": "6958eb90-7e40-4a28-a518-d15d7a637d2b",
 		"name": "Phrases",
+		"description": "# Phrases API\n\n`` This API let you use Phrases DB elements ``\n\n## Info\n* You shouldn't add Authors - it's create automaticaly after adding new Phrase with new Author\n* All Phrases are unique\n* All ID's you can find in GetPhrases request\n* {id} - id number (1, 6, 23, 52 etc)\n\n---\n## Requests\n#### GET\n* GetPhrases - `/phrases` Get all phrases\n* GetPhrase - `/phrases/{id}` Get one phrase by {id}\n* GetRandomPhrase - `/phrases/random` Get random phrase (work in progress)\n#### POST\n* AddPhrase - `/phrases/addPhrase` Add one phrase\n* AddPhrases - `/phrases/addPhrases` Add phrase list\n#### PUT\n* EditPhrase - `/phrases/update` Edit phrase\n#### DELETE\n* RemovePhrase - `/phrases/remove/{id}` Remove phrase by {id}\n---\n\n## Body\n#### In POST and PUT requests you should send Body values in JSON format.\n* AddPhrase\n```JSON\n{\n  \"phrase\": \"It's a phrase\",\n  \"author\": \n  {\n    \"name\": \"Author Name\"\n  }\n}\n```\n* AddPhrases\n```JSON\n[\n  {\n    \"phrase\": \"First phrase\",\n    \"author\":\n    {\n      \"name\": \"First author\"\n    }\n  },\n  {\n    \"phrase\": \"Second phrase\",\n    \"author\":\n    {\n      \"name\": \"Second author\"\n    }\n  }\n]\n```\n* EditPhrase\n```JSON\n{\n  \"id\":5,\n  \"phrase\":\"Your changed phrase\"\n}\n```\n\n---\n## About\n> API created by Krip4yk (me) <br/>\n> API supervised by Braklord <br/>\n> Created for educational reasons <br/>\n> Free in use <br/>\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "GetPhrase",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:8080/phrases/0",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"phrases",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "GetPhrases",
 			"protocolProfileBehavior": {
@@ -56,6 +38,25 @@
 			"response": []
 		},
 		{
+			"name": "GetPhrase",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/phrases/0",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"phrases",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GetRandomPhrase",
 			"request": {
 				"method": "GET",
@@ -81,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"phrase\": \"Я тут твой хард проверила и нашла папку nocilol... хе-хе... извращуга!\",\r\n    \"author\": {\r\n        \"name\": \"Krip4yk\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"phrase\": \"Ой мяу!\" \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,7 +138,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\":14,\r\n    \"phrase\":\"My\"\r\n}",
+					"raw": "{\r\n    \"id\":14,\r\n    \"phrase\":\"Я тут твой хард проверила и нашла папку nocilol... хе-хе... извращуга!\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -164,7 +165,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/phrases/remove/14",
+					"raw": "localhost:8080/phrases/remove/38",
 					"host": [
 						"localhost"
 					],
@@ -172,7 +173,7 @@
 					"path": [
 						"phrases",
 						"remove",
-						"14"
+						"38"
 					]
 				}
 			},

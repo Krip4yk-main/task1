@@ -60,4 +60,9 @@ public class PhraseController {
     public void updatePhrase(@RequestBody Phrase phrase) {
         service.updatePhrase(phrase);
     }
+
+    @PutMapping("/update/author")
+    public void updateAuthor(@RequestBody Phrase phrase) {
+        service.updateAuthor(phrase);
+    }
 }

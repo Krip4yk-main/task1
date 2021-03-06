@@ -75,6 +75,15 @@ public class PhrasesService {
         phraseRepository.save(existingPhrase);
     }
 
+    public void updateAuthor(Phrase phrase) {
+        phrase = isAuthorExist(phrase);
+
+        Phrase existingPhrase = phraseRepository.findById(phrase.getId()).orElse(null);
+        existingPhrase.setAuthor(phrase.getAuthor());
+
+        phraseRepository.save(existingPhrase);
+    }
+
     //OTHER
 
     private Phrase isAuthorExist(Phrase phrase) {
